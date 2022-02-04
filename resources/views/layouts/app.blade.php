@@ -41,6 +41,7 @@
                         <!-- Authentication Links -->
                         @guest
                         @else
+                            <li><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                             @can('isUser')
                                 <li><a class="nav-link" href="{{ route('payments.index') }}">Payments</a></li>
                             @endcan

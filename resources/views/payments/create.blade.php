@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label>Reference No</label>
+                            <label>Receipt Reference No</label>
                             <input type="text" name="payment_ref" class="form-control" placeholder="Payment Referrence No">
                         </div>
                     </div>
@@ -147,17 +147,17 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                         <div class="form-group">
-                            <label>Payment For</label>
-                            <input type="text" name="for" class="form-control" placeholder="Payment For">
+                            <label>Payment For <span class="font-italic text-danger">(Please indicate what your payments are for.)</span></label>
+                            <input type="text" name="for" class="form-control" placeholder="e.g. Tuition, Books, Uniforms, Step">
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                         <div class="form-group">
-                            <label>Amount</label>
-                            <input type="text" name="amount" class="form-control" placeholder="Amount">
+                            <label>Payment Breakdown <span class="font-italic text-danger">(Please indicate what your payments are for along with the amount you will pay.)</span></label>
+                            <textarea class="form-control" name="amount" rows="3" placeholder="e.g. Tuition - 1500, Step - 100, Book - 500"></textarea>
                         </div>
                     </div>
 

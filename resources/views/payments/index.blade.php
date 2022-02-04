@@ -20,7 +20,7 @@
                         <th>Semester</th>
                         <th>Name</th>
                         <th>Payment For</th>
-                        <th>Amount</th>
+                        <th>Payment Breakdown</th>
                         <th>Action</th>
                     </tr>
                     @foreach ($payments as $payment)
