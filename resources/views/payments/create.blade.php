@@ -199,7 +199,7 @@
 
 <div class="row my-2">
     <div class="col-sm-12 text-center">
-            <button type="submit" class="btn btn-block btn-primary">Submit</button>
+            <button type="submit" class="btn btn-block btn-success">Submit</button>
     </div>  
 </div>
 </form>
