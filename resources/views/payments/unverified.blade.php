@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($payments as $payment)
+                    @foreach ($unverified as $payment)
                     <tr>
                         <td>{{ ++$i }}</td>
                         <td>{{ $payment->course->name }}</td>
@@ -66,7 +66,7 @@
                         </td>
                     </tr>
                     @endforeach
-                </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -75,7 +75,7 @@
 
 
 
-    @foreach ($payments as $payment)
+    @foreach ($unverified as $payment)
         <!-- Modal -->
         <div class="modal fade" id="modal-{{ $payment->id }}" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-md">

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PaymentSuccess;
 use App\Mail\PaymentVerified;
+use App\Mail\PaymentClaimed;
 
 class PaymentController extends Controller
 {
@@ -18,7 +19,7 @@ class PaymentController extends Controller
 
     public function index()
     {
-        $payments = Payment::latest()->paginate(5);
+        $payments = Payment::all();
         return view('payments.index',compact('payments'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -100,6 +101,26 @@ class PaymentController extends Controller
 
         return redirect()->route('payments.index');
     }
+
+    public function unclaim(Payment $payment)
+    {
+        $payment->claim = '0';
+        $payment->save();
+
+        return redirect()->route('payments.index');
+    }
+
+
+    public function claim(Payment $payment)
+    {
+        $payment->claim = '1';
+        $payment->save();
+
+        Mail::to($payment->email)->send(new PaymentClaimed($payment));
+
+        return redirect()->route('payments.index');
+    }
+
 
     public function status(Request $request){
         // Get the search value from the request

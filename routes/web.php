@@ -26,6 +26,10 @@ Route::get('/status', 'PaymentController@status')->name('status');
 Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function () {
     Route::delete('/unverify/{payment}', 'PaymentController@unverify')->name('unverify');
     Route::get('/verify/{payment}', 'PaymentController@verify')->name('verify');
+    Route::delete('/unclaim/{payment}', 'PaymentController@unclaim')->name('unclaim');
+    Route::get('/claim/{payment}', 'PaymentController@claim')->name('claim');
+    Route::get('/unclaimed', 'HomeController@unclaimed')->name('unclaimed');
+    Route::get('/unverified', 'HomeController@unverified')->name('unverified');
 });
 
 Route::resource('payments','PaymentController');

@@ -35,6 +35,7 @@ class CreatePaymentsTable extends Migration
             $table->string('auth_lastname')->nullable();
             $table->string('auth_middlename')->nullable();
             $table->enum('status', [0, 1])->default(0);
+            $table->enum('claim', [0, 1])->default(0);
             $table->timestamps();
         });
     }

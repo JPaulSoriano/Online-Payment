@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Payment;
 
 class HomeController extends Controller
 {
@@ -24,16 +25,24 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        $payments = Payment::count();
+        $unclaimed = Payment::where('claim', '=', '0')->count();
+        $unverified = Payment::where('status', '=', '0')->count();
+        return view('home', compact('unclaimed', 'unverified', 'payments'));
     }
 
-    public function admindashboard()
+    public function unclaimed()
     {
-        return view('admindashboard');
+        $unclaimed = Payment::where('claim', '=', '0')->get();
+        return view('payments.unclaimed', compact('unclaimed'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function userdashboard()
+    public function unverified()
     {
-        return view('userdashboard');
+        $unverified = Payment::where('status', '=', '0')->get();
+        return view('payments.unverified', compact('unverified'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
 }
