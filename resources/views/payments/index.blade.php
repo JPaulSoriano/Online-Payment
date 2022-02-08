@@ -15,6 +15,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Reference No</th>
                         <th>Course</th>
                         <th>Student No</th>
                         <th>A.Y.</th>
@@ -31,6 +32,7 @@
                     @foreach ($payments as $payment)
                     <tr>
                         <td>{{ ++$i }}</td>
+                        <td>{{ $payment->ref_no }}</td>
                         <td>{{ $payment->course->name }}</td>
                         <td>{{ $payment->stud_no }}</td>
                         <td>{{ $payment->period->name }}</td>
