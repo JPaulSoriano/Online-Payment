@@ -42,47 +42,36 @@
                         @endif
                     </div>       
                     <div class="card mb-3 my-5">
-                        <div class="card-body">
-                            <div class="row text-center">
-                                <div class="col-sm-12">
-                                    <p class="bg-primary text-white">Name</p>
-                                    <p>{{ $payment->full_name }}</p>
-                                </div>
-                                <div class="col-sm-12">
-                                    <p class="bg-primary text-white">Student No</p>
-                                    <p>{{ $payment->stud_no }}</p>
-                                </div>
-                                <div class="col-sm-12">
-                                    <p class="bg-primary text-white">Course</p>
-                                    <p>{{ $payment->course->name }}</p>
-                                </div>
-                                <div class="col-sm-12">
-                                    <p class="bg-primary text-white">Year</p>
-                                    <p>{{ $payment->year->name }}</p>
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <p class="bg-primary text-white">Payment Method</p>
-                                    <p>{{ $payment->method->name }}</p>
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <p class="bg-primary text-white">Payment For</p>
-                                    <p>{{ $payment->for }}</p>
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <p class="bg-primary text-white">Amount</p>
-                                    <p>{{ $payment->amount }}</p>
-                                </div>
-
-                            </div>
+                        <div class="card-header bg-primary text-white">{{ $payment->ref_no }}</div>
+                        <div class="card-body font-weight-bold">
+                            <label class="text-muted">Name</label>
+                            <p>{{ $payment->full_name }}</p>
+                            <label class="text-muted">Student Number</label>
+                            <p>{{ $payment->stud_no }}</p>
+                            <label class="text-muted">Course</label>
+                            <p>{{ $payment->course->name }}</p>
+                            <label class="text-muted">Year</label>
+                            <p>{{ $payment->year->name }}</p>
+                            <label class="text-muted">Payment Method</label>
+                            <p>{{ $payment->method->name }}</p>
+                            <label class="text-muted">Payment For</label>
+                            <p>{{ $payment->for }}</p>
+                            <label class="text-muted">Total Amount</label>
+                            <p>{{ $payment->amount }}</p>
+                            <label class="text-muted">Status</label>
+                            <p>
+                                @if($payment->status == 1)
+                                    <span class="badge badge-success">Verified</span>
+                                @else
+                                    <span class="badge badge-danger">Unverified</span>
+                                @endif
+                                @if($payment->claim == 1)
+                                    <span class="badge badge-success">Claimed</span>
+                                @else
+                                    <span class="badge badge-danger">Unclaimed</span>
+                                @endif
+                            </p>
                         </div>
-                            @if($payment->status == 1)
-                                <div class="card-footer text-center bg-success text-white">Verified</div>
-                            @else
-                                <div class="card-footer text-center bg-danger text-white">Unverified</div>
-                            @endif
                     </div>
                 @endforeach
         </div>
